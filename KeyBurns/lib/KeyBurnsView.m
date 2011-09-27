@@ -3,7 +3,7 @@
 //  KeyBurns
 //
 //  Created by Javier Berlana on 9/23/11.
-//  Copyright 2011 IECISA. All rights reserved.
+//  Copyright 2011 SweetBits.es All rights reserved.
 //
 
 #import "KeyBurnsView.h"
