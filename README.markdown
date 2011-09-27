@@ -7,10 +7,10 @@ Use interface:
 
 - (void)starAnimationWithImages:(NSArray*)images TransitionTime:(float)time onLoop:(BOOL)isLoop inLandscape:(BOOL)isLandscape;
 
-1. **images:** (Shows in green.) NSArray of UIImages.
-2. **time:** (Shows in green.) Time in seconds for the transition between each image.
-3. **isLoop:** (Shows in green.) The animation will stare again when ended.
-4. **isLandscape:** (Shows in green.) If true optimized to show in Landscape mode.
+1. **images:** NSArray of UIImages.
+2. **time:**  Time in seconds for the transition between each image.
+3. **isLoop:**  The animation will stare again when ended.
+4. **isLandscape:**  If true optimized to show in Landscape mode.
 
 ### TODO
 
