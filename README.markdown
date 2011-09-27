@@ -3,7 +3,7 @@ iOS KeyBurns effect
 
 The goal of this project is to create a UIView that can generate a KeyBurns transition with a set of images passed as an array.
 
-To use it just create a UIView that inherits from KeyBurnsView.h and call this method to start the animation.
+To use it just create a UIView that inherit from KeyBurnsView.h and call this method to start the animation.
 
 **- (void)starAnimationWithImages:(NSArray*)images TransitionTime:(float)time onLoop:(BOOL)isLoop inLandscape:(BOOL)isLandscape;**
 
