@@ -5,12 +5,12 @@ The goal of this project is to create a UIView that can generate a KyBurns trans
 
 Use interface:
 
-- (void)starAnimationWithImages:(NSArray*)images TransitionTime:(float)time onLoop:(BOOL)isLoop inLandscape:(BOOL)isLandscape;
+**- (void)starAnimationWithImages:(NSArray*)images TransitionTime:(float)time onLoop:(BOOL)isLoop inLandscape:(BOOL)isLandscape;**
 
-1. **images:** NSArray of UIImages.
-2. **time:**  Time in seconds for the transition between each image.
-3. **isLoop:**  The animation will start again when ended.
-4. **isLandscape:**  If true optimized to show in Landscape mode.
+1. *images:* NSArray of UIImages.
+2. *time:*  Time in seconds for the transition between each image.
+3. *isLoop:*  The animation will start again when ended.
+4. *isLandscape:*  If true optimized to show in Landscape mode.
 
 ### TODO
 
@@ -19,4 +19,4 @@ Use interface:
 
 
 --
-sweetbits.es
+###[SweetBits](http://example.com/ "SweetBits"), welcome to the candy factory.###
