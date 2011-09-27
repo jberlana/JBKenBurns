@@ -1,9 +1,9 @@
 iOS KeyBurns effect
 ====================
 
-The goal of this project is to create a UIView that can generate a KyBurns transition with a set of images passed as an array.
+The goal of this project is to create a UIView that can generate a KeyBurns transition with a set of images passed as an array.
 
-Use interface:
+To use it just create a UIView that inherits from KeyBurnsView.h and call this method to start the animation.
 
 **- (void)starAnimationWithImages:(NSArray*)images TransitionTime:(float)time onLoop:(BOOL)isLoop inLandscape:(BOOL)isLandscape;**
 
@@ -15,8 +15,7 @@ Use interface:
 ### TODO
 
 * Need to allow device rotation.
-* Better image transitions effects.
-
+* Improvements on image transition effects.
 
 --
 ###[SweetBits](http://www.sweetbits.es/ "SweetBits"), welcome to the candy factory.###
