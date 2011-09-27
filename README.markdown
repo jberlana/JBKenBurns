@@ -9,10 +9,14 @@ Use interface:
 
 1. **images:** NSArray of UIImages.
 2. **time:**  Time in seconds for the transition between each image.
-3. **isLoop:**  The animation will stare again when ended.
+3. **isLoop:**  The animation will start again when ended.
 4. **isLandscape:**  If true optimized to show in Landscape mode.
 
 ### TODO
 
 * Need to allow device rotation.
 * Better image transitions effects.
+
+
+--
+sweetbits.es
