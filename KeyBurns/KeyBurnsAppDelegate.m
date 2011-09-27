@@ -3,7 +3,7 @@
 //  KeyBurns
 //
 //  Created by Javier Berlana on 9/23/11.
-//  Copyright 2011 DMS. All rights reserved.
+//  Copyright 2011 IECISAAll rights reserved.
 //
 
 #import "KeyBurnsAppDelegate.h"
