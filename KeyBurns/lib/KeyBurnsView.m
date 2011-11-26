@@ -93,11 +93,11 @@
     float frameWidth    = isLandscape? self.frame.size.width : self.frame.size.height;
     float frameHeight   = isLandscape? self.frame.size.height : self.frame.size.width;
     
-    // Se sale de ancha
+    // Widder than screen 
     if (image.size.width > frameWidth){
         widthDiff  = image.size.width - frameWidth;
         
-        // Se sale de alta
+        // Higher than screen
         if (image.size.height > frameHeight){
             heightDiff = image.size.height - frameHeight;
             
@@ -106,7 +106,7 @@
             else
                 resizeRatio = frameWidth / image.size.width;
             
-            // No se sale de alta
+        // No higher than screen
         }else{
             heightDiff = frameHeight - image.size.height;
             
@@ -116,11 +116,11 @@
                 resizeRatio = self.bounds.size.height / image.size.height;
         }
         
-    // No se sale de ancha
+    // No widder than screen
     }else{
         widthDiff  = frameWidth - image.size.width;
         
-        // Se sale de alta
+        // Higher than screen
         if (image.size.height > frameHeight){
             heightDiff = image.size.height - frameHeight;
             
@@ -129,7 +129,7 @@
             else
                 resizeRatio = frameWidth / image.size.width;
             
-        // No se sale de alta (TESTED)
+        // No higher than screen
         }else{
             heightDiff = frameHeight - image.size.height;
             
@@ -145,7 +145,7 @@
     float optimusHeight = (image.size.height * resizeRatio) * enlargeRatio;
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, optimusWidth, optimusHeight)];
     
-    // Calculo el movimiento maximo tanto en Portrait cómo en Landscape.
+    // Calcule the maximum move allowed.
     float maxMoveX = optimusWidth - frameWidth;
     float maxMoveY = optimusHeight - frameHeight;
     
@@ -194,7 +194,6 @@
             break;
     }
     
-    // Se coloca la capa con la imagen como subvista del frame superior
     CALayer *picLayer = [CALayer layer];
     picLayer.contents = (id)image.CGImage;
     picLayer.anchorPoint = CGPointMake(0, 0); 
@@ -208,14 +207,14 @@
     [animation setType:kCATransitionFade];
     [[self layer] addAnimation:animation forKey:nil];
     
-    // Elimino la capa anterior
+    // Remove the previous view
     if ([[self subviews] count] > 0){
         [[[self subviews] objectAtIndex:0] removeFromSuperview];
     }
     
     [self addSubview:imageView];
     
-    // Se genera la animación
+    // Generates the animation
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:self.timeTransition+1];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
