@@ -3,7 +3,23 @@
 //  KeyBurns
 //
 //  Created by Javier Berlana on 9/23/11.
-//  Copyright 2011 SweetBits.es All rights reserved.
+//  Copyright (c) 2011, Javier Berlana
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+//  software and associated documentation files (the "Software"), to deal in the Software 
+//  without restriction, including without limitation the rights to use, copy, modify, merge, 
+//  publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons 
+//  to whom the Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all copies 
+//  or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+//  INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+//  PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
+//  FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+//  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
+//  IN THE SOFTWARE.
 //
 
 #import "KeyBurnsView.h"
@@ -14,11 +30,11 @@
 // Private interface
 @interface KeyBurnsView ()
 
-@property (nonatomic) int currentImage;
-@property (nonatomic) BOOL animationInCurse;
+  @property (nonatomic) int currentImage;
+  @property (nonatomic) BOOL animationInCurse;
 
-- (void)animate:(NSNumber*)num;
-- (void)starAnimations:(NSArray*)images;
+  - (void)animate:(NSNumber*)num;
+  - (void)starAnimations:(NSArray*)images;
 @end
 
 
@@ -94,11 +110,13 @@
     float frameHeight   = isLandscape? self.frame.size.height : self.frame.size.width;
     
     // Widder than screen 
-    if (image.size.width > frameWidth){
+    if (image.size.width > frameWidth)
+    {
         widthDiff  = image.size.width - frameWidth;
         
         // Higher than screen
-        if (image.size.height > frameHeight){
+        if (image.size.height > frameHeight)
+        {
             heightDiff = image.size.height - frameHeight;
             
             if (widthDiff > heightDiff) 
@@ -107,7 +125,9 @@
                 resizeRatio = frameWidth / image.size.width;
             
         // No higher than screen
-        }else{
+        }
+        else
+        {
             heightDiff = frameHeight - image.size.height;
             
             if (widthDiff > heightDiff) 
@@ -117,11 +137,14 @@
         }
         
     // No widder than screen
-    }else{
+    }
+    else
+    {
         widthDiff  = frameWidth - image.size.width;
         
         // Higher than screen
-        if (image.size.height > frameHeight){
+        if (image.size.height > frameHeight)
+        {
             heightDiff = image.size.height - frameHeight;
             
             if (widthDiff > heightDiff) 
@@ -130,7 +153,9 @@
                 resizeRatio = frameWidth / image.size.width;
             
         // No higher than screen
-        }else{
+        }
+        else
+        {
             heightDiff = frameHeight - image.size.height;
             
             if (widthDiff > heightDiff) 
@@ -194,11 +219,11 @@
             break;
     }
     
-    CALayer *picLayer = [CALayer layer];
-    picLayer.contents = (id)image.CGImage;
+    CALayer *picLayer    = [CALayer layer];
+    picLayer.contents    = (id)image.CGImage;
     picLayer.anchorPoint = CGPointMake(0, 0); 
-    picLayer.bounds = CGRectMake(0, 0, optimusWidth, optimusHeight);
-    picLayer.position =  CGPointMake(originX, originY);
+    picLayer.bounds      = CGRectMake(0, 0, optimusWidth, optimusHeight);
+    picLayer.position    = CGPointMake(originX, originY);
     
     [imageView.layer addSublayer:picLayer];
     
