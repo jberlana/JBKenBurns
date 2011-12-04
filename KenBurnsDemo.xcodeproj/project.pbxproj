@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		42AC447A148BA08300F76C22 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AC4476148BA08300F76C22 /* ExampleViewController.m */; };
+		42AC447B148BA08300F76C22 /* ExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42AC4477148BA08300F76C22 /* ExampleViewController.xib */; };
+		42AC447C148BA08300F76C22 /* KenBurnsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AC4479148BA08300F76C22 /* KenBurnsAppDelegate.m */; };
+		42AC4480148BA0F500F76C22 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42AC447E148BA0F500F76C22 /* MainWindow.xib */; };
+		42AC4483148BA10400F76C22 /* JBKenBurnsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AC4482148BA10400F76C22 /* JBKenBurnsView.m */; };
+		42AC4489148BA12300F76C22 /* image1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 42AC4484148BA12300F76C22 /* image1.jpeg */; };
+		42AC448A148BA12300F76C22 /* image2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 42AC4485148BA12300F76C22 /* image2.jpeg */; };
+		42AC448B148BA12300F76C22 /* image3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 42AC4486148BA12300F76C22 /* image3.jpeg */; };
+		42AC448C148BA12300F76C22 /* image4.png in Resources */ = {isa = PBXBuildFile; fileRef = 42AC4487148BA12300F76C22 /* image4.png */; };
+		42AC448D148BA12300F76C22 /* image5.png in Resources */ = {isa = PBXBuildFile; fileRef = 42AC4488148BA12300F76C22 /* image5.png */; };
+		42AC4499148BA27C00F76C22 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42AC4497148BA27C00F76C22 /* InfoPlist.strings */; };
+		42B17968142CCBE3006D5610 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B17967142CCBE3006D5610 /* UIKit.framework */; };
+		42B1796A142CCBE3006D5610 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B17969142CCBE3006D5610 /* Foundation.framework */; };
+		42B1796C142CCBE3006D5610 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B1796B142CCBE3006D5610 /* CoreGraphics.framework */; };
+		42B17994142CD2EA006D5610 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B17993142CD2EA006D5610 /* QuartzCore.framework */; };
+		42DBE1EE148B9E7A00A0D5B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DBE1EA148B9E7A00A0D5B1 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		42AC4475148BA08300F76C22 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleViewController.h; path = Demo/ExampleViewController.h; sourceTree = SOURCE_ROOT; };
+		42AC4476148BA08300F76C22 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleViewController.m; path = Demo/ExampleViewController.m; sourceTree = SOURCE_ROOT; };
+		42AC4477148BA08300F76C22 /* ExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExampleViewController.xib; path = Demo/ExampleViewController.xib; sourceTree = SOURCE_ROOT; };
+		42AC4478148BA08300F76C22 /* KenBurnsAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KenBurnsAppDelegate.h; path = Demo/KenBurnsAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		42AC4479148BA08300F76C22 /* KenBurnsAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KenBurnsAppDelegate.m; path = Demo/KenBurnsAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		42AC447F148BA0F500F76C22 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Demo/en.lproj/MainWindow.xib; sourceTree = SOURCE_ROOT; };
+		42AC4481148BA10400F76C22 /* JBKenBurnsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBKenBurnsView.h; path = KenBurns/JBKenBurnsView.h; sourceTree = SOURCE_ROOT; };
+		42AC4482148BA10400F76C22 /* JBKenBurnsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JBKenBurnsView.m; path = KenBurns/JBKenBurnsView.m; sourceTree = SOURCE_ROOT; };
+		42AC4484148BA12300F76C22 /* image1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image1.jpeg; path = Demo/images/image1.jpeg; sourceTree = SOURCE_ROOT; };
+		42AC4485148BA12300F76C22 /* image2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image2.jpeg; path = Demo/images/image2.jpeg; sourceTree = SOURCE_ROOT; };
+		42AC4486148BA12300F76C22 /* image3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image3.jpeg; path = Demo/images/image3.jpeg; sourceTree = SOURCE_ROOT; };
+		42AC4487148BA12300F76C22 /* image4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image4.png; path = Demo/images/image4.png; sourceTree = SOURCE_ROOT; };
+		42AC4488148BA12300F76C22 /* image5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image5.png; path = Demo/images/image5.png; sourceTree = SOURCE_ROOT; };
+		42AC4498148BA27C00F76C22 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Demo/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		42B17963142CCBE3006D5610 /* KenBurns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KenBurns.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		42B17967142CCBE3006D5610 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		42B17969142CCBE3006D5610 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		42B1796B142CCBE3006D5610 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		42B17993142CD2EA006D5610 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		42DBE1E8148B9E7A00A0D5B1 /* KenBurnsDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "KenBurnsDemo-Info.plist"; path = "Demo/KenBurnsDemo-Info.plist"; sourceTree = SOURCE_ROOT; };
+		42DBE1E9148B9E7A00A0D5B1 /* KenBurnsDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KenBurnsDemo-Prefix.pch"; path = "Demo/KenBurnsDemo-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		42DBE1EA148B9E7A00A0D5B1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Demo/main.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		42B17960142CCBE3006D5610 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42B17994142CD2EA006D5610 /* QuartzCore.framework in Frameworks */,
+				42B17968142CCBE3006D5610 /* UIKit.framework in Frameworks */,
+				42B1796A142CCBE3006D5610 /* Foundation.framework in Frameworks */,
+				42B1796C142CCBE3006D5610 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		42B17958142CCBE3006D5610 = {
+			isa = PBXGroup;
+			children = (
+				42B1796D142CCBE3006D5610 /* Demo */,
+				42B17966142CCBE3006D5610 /* Frameworks */,
+				42B17964142CCBE3006D5610 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		42B17964142CCBE3006D5610 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42B17963142CCBE3006D5610 /* KenBurns.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		42B17966142CCBE3006D5610 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42B17993142CD2EA006D5610 /* QuartzCore.framework */,
+				42B17967142CCBE3006D5610 /* UIKit.framework */,
+				42B17969142CCBE3006D5610 /* Foundation.framework */,
+				42B1796B142CCBE3006D5610 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42B1796D142CCBE3006D5610 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				42B17981142CCBFE006D5610 /* KeyBurns Lib */,
+				42AC4478148BA08300F76C22 /* KenBurnsAppDelegate.h */,
+				42AC4479148BA08300F76C22 /* KenBurnsAppDelegate.m */,
+				42AC447E148BA0F500F76C22 /* MainWindow.xib */,
+				42AC4475148BA08300F76C22 /* ExampleViewController.h */,
+				42AC4476148BA08300F76C22 /* ExampleViewController.m */,
+				42AC4477148BA08300F76C22 /* ExampleViewController.xib */,
+				42B1796E142CCBE3006D5610 /* Supporting Files */,
+			);
+			name = Demo;
+			path = KeyBurns;
+			sourceTree = "<group>";
+		};
+		42B1796E142CCBE3006D5610 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				42B1798E142CD0FC006D5610 /* Images */,
+				42DBE1E8148B9E7A00A0D5B1 /* KenBurnsDemo-Info.plist */,
+				42AC4497148BA27C00F76C22 /* InfoPlist.strings */,
+				42DBE1E9148B9E7A00A0D5B1 /* KenBurnsDemo-Prefix.pch */,
+				42DBE1EA148B9E7A00A0D5B1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		42B17981142CCBFE006D5610 /* KeyBurns Lib */ = {
+			isa = PBXGroup;
+			children = (
+				42AC4481148BA10400F76C22 /* JBKenBurnsView.h */,
+				42AC4482148BA10400F76C22 /* JBKenBurnsView.m */,
+			);
+			name = "KeyBurns Lib";
+			sourceTree = "<group>";
+		};
+		42B1798E142CD0FC006D5610 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				42AC4484148BA12300F76C22 /* image1.jpeg */,
+				42AC4485148BA12300F76C22 /* image2.jpeg */,
+				42AC4486148BA12300F76C22 /* image3.jpeg */,
+				42AC4487148BA12300F76C22 /* image4.png */,
+				42AC4488148BA12300F76C22 /* image5.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		42B17962142CCBE3006D5610 /* KenBurns */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42B1797E142CCBE3006D5610 /* Build configuration list for PBXNativeTarget "KenBurns" */;
+			buildPhases = (
+				42B1795F142CCBE3006D5610 /* Sources */,
+				42B17960142CCBE3006D5610 /* Frameworks */,
+				42B17961142CCBE3006D5610 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KenBurns;
+			productName = KeyBurns;
+			productReference = 42B17963142CCBE3006D5610 /* KenBurns.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		42B1795A142CCBE3006D5610 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Sweetbits;
+			};
+			buildConfigurationList = 42B1795D142CCBE3006D5610 /* Build configuration list for PBXProject "KenBurnsDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 42B17958142CCBE3006D5610;
+			productRefGroup = 42B17964142CCBE3006D5610 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42B17962142CCBE3006D5610 /* KenBurns */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		42B17961142CCBE3006D5610 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42AC447B148BA08300F76C22 /* ExampleViewController.xib in Resources */,
+				42AC4480148BA0F500F76C22 /* MainWindow.xib in Resources */,
+				42AC4489148BA12300F76C22 /* image1.jpeg in Resources */,
+				42AC448A148BA12300F76C22 /* image2.jpeg in Resources */,
+				42AC448B148BA12300F76C22 /* image3.jpeg in Resources */,
+				42AC448C148BA12300F76C22 /* image4.png in Resources */,
+				42AC448D148BA12300F76C22 /* image5.png in Resources */,
+				42AC4499148BA27C00F76C22 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		42B1795F142CCBE3006D5610 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42DBE1EE148B9E7A00A0D5B1 /* main.m in Sources */,
+				42AC447A148BA08300F76C22 /* ExampleViewController.m in Sources */,
+				42AC447C148BA08300F76C22 /* KenBurnsAppDelegate.m in Sources */,
+				42AC4483148BA10400F76C22 /* JBKenBurnsView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		42AC447E148BA0F500F76C22 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42AC447F148BA0F500F76C22 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		42AC4497148BA27C00F76C22 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42AC4498148BA27C00F76C22 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		42B1797C142CCBE3006D5610 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		42B1797D142CCBE3006D5610 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		42B1797F142CCBE3006D5610 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Demo/KenBurnsDemo-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "Demo/KenBurnsDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		42B17980142CCBE3006D5610 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Demo/KenBurnsDemo-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "Demo/KenBurnsDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		42B1795D142CCBE3006D5610 /* Build configuration list for PBXProject "KenBurnsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42B1797C142CCBE3006D5610 /* Debug */,
+				42B1797D142CCBE3006D5610 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42B1797E142CCBE3006D5610 /* Build configuration list for PBXNativeTarget "KenBurns" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42B1797F142CCBE3006D5610 /* Debug */,
+				42B17980142CCBE3006D5610 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 42B1795A142CCBE3006D5610 /* Project object */;
+}
