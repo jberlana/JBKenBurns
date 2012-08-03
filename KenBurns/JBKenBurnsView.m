@@ -31,20 +31,21 @@
 // Private interface
 @interface KenBurnsView ()
 
-  @property (nonatomic) int currentImage;
-  @property (nonatomic) BOOL animationInCurse;
+@property (nonatomic) int currentImage;
+@property (nonatomic) BOOL animationInCurse;
 
-  - (void) _animate:(NSNumber*)num;
-  - (void) _startAnimations:(NSArray*)images;
-  - (void) _startInternetAnimations:(NSArray *)urls;
-  - (UIImage *) _downloadImageFrom:(NSString *)url;
+- (void) _animate:(NSNumber*)num;
+- (void) _startAnimations:(NSArray*)images;
+- (void) _startInternetAnimations:(NSArray *)urls;
+- (UIImage *) _downloadImageFrom:(NSString *)url;
+- (void) _notifyDelegate:(NSNumber *) imageIndex;
 @end
 
 
 @implementation KenBurnsView
 
 @synthesize imagesArray, timeTransition, isLoop, isLandscape;
-@synthesize animationInCurse, currentImage;
+@synthesize animationInCurse, currentImage, delegate;
 
 
 -(id)init
@@ -76,7 +77,7 @@
     self.layer.masksToBounds = YES;
     
     [NSThread detachNewThreadSelector:@selector(_startAnimations:) toTarget:self withObject:images];
-
+    
 }
 
 - (void) animateWithURLs:(NSArray *)urls transitionDuration:(float)duration loop:(BOOL)shouldLoop isLandscape:(BOOL)inLandscape;
@@ -113,9 +114,11 @@
                             waitUntilDone:YES];
         
         sleep(self.timeTransition);
-        i = (i == [images count]-1) && isLoop ? -1 : i; 
+        
+        i = (i == [images count] - 1) && isLoop ? -1 : i;
+        
     }
-
+    
     [pool release];
 }
 
@@ -133,7 +136,7 @@
     int bufferIndex = 0;
     
     for (int urlIndex=self.imagesArray.count; urlIndex < [urls count]; urlIndex++) {
-                
+        
         [self performSelectorOnMainThread:@selector(_animate:)
                                withObject:[NSNumber numberWithInt:0]
                             waitUntilDone:YES];            
@@ -189,7 +192,7 @@
             else
                 resizeRatio = frameWidth / image.size.width;
             
-        // No higher than screen
+            // No higher than screen
         }
         else
         {
@@ -201,7 +204,7 @@
                 resizeRatio = self.bounds.size.height / image.size.height;
         }
         
-    // No widder than screen
+        // No widder than screen
     }
     else
     {
@@ -217,7 +220,7 @@
             else
                 resizeRatio = frameWidth / image.size.width;
             
-        // No higher than screen
+            // No higher than screen
         }
         else
         {
@@ -240,7 +243,7 @@
     float maxMoveY = optimusHeight - frameHeight;
     
     float rotation = (arc4random() % 9) / 100;
-
+    
     switch (arc4random() % 4) {
         case 0:
             originX = 0;
@@ -259,7 +262,7 @@
             moveX   = -maxMoveX;
             moveY   = maxMoveY;
             break;
-
+            
             
         case 2:
             originX = frameWidth - optimusWidth;
@@ -316,7 +319,24 @@
     imageView.transform = transform;
     [UIView commitAnimations];
     
+    [self performSelector:@selector(_notifyDelegate:) withObject:num afterDelay:self.timeTransition];
+    
     [imageView release];
+    
+}
+
+- (void) _notifyDelegate: (NSNumber *)imageIndex
+{
+    if (delegate) {
+        if([self.delegate respondsToSelector:@selector(didShowImageAtIndex:)])
+        {
+            [self.delegate didShowImageAtIndex:[imageIndex intValue]];
+        }      
+        
+        if ([imageIndex intValue] == ([self.imagesArray count]-1) && !isLoop && [self.delegate respondsToSelector:@selector(didFinishAllAnimations)]) {            
+            [self.delegate didFinishAllAnimations];        
+        } 
+    }
     
 }
 
