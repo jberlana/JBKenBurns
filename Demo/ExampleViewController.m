@@ -44,7 +44,8 @@
     [super viewDidLoad];
     
     self.kenView.layer.borderWidth = 1;
-    self.kenView.layer.borderColor = [UIColor blackColor].CGColor;    
+    self.kenView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.kenView.delegate = self;
     
     NSArray *myImages = [NSArray arrayWithObjects:
                          [UIImage imageNamed:@"image1.jpeg"],
@@ -62,6 +63,7 @@
 
 - (void)viewDidUnload
 {
+    self.kenView.delegate = nil;
     [self setKenView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -87,5 +89,17 @@
     [kenView release];
     [super dealloc];
 }
+
+#pragma KenBurnsViewDelegate
+- (void)didShowImageAtIndex:(NSUInteger)index
+{
+    NSLog(@"Finished image: %d", index);
+}
+
+- (void)didFinishAllAnimations
+{
+    NSLog(@"Yay all done!");
+}
+
 
 @end

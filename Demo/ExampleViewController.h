@@ -25,7 +25,7 @@
 #import <UIKit/UIKit.h>
 #import "JBKenBurnsView.h"
 
-@interface ExampleViewController : UIViewController {
+@interface ExampleViewController : UIViewController <KenBurnsViewDelegate> {
     KenBurnsView *kenView;
 }
 
