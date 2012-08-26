@@ -29,7 +29,7 @@
 #define imageBufer 3
 
 // Private interface
-@interface KenBurnsView ()
+@interface JBKenBurnsView ()
 
 @property (nonatomic) int currentImage;
 @property (nonatomic) BOOL animationInCurse;
@@ -42,7 +42,7 @@
 @end
 
 
-@implementation KenBurnsView
+@implementation JBKenBurnsView
 
 @synthesize imagesArray, timeTransition, isLoop, isLandscape;
 @synthesize animationInCurse, currentImage, delegate;
