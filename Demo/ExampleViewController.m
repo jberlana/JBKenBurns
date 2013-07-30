@@ -46,7 +46,10 @@
     self.kenView.layer.borderWidth = 1;
     self.kenView.layer.borderColor = [UIColor blackColor].CGColor;
     self.kenView.delegate = self;
-    
+}
+
+- (void)viewdidAppear:(BOOL)animated
+{
     NSArray *myImages = [NSArray arrayWithObjects:
                          [UIImage imageNamed:@"image1.jpeg"],
                          [UIImage imageNamed:@"image2.jpeg"],
@@ -54,11 +57,10 @@
                          [UIImage imageNamed:@"image4.png"],
                          [UIImage imageNamed:@"image5.png"], nil];
     
-    [self.kenView animateWithImages:myImages 
-                 transitionDuration:15
-                               loop:YES 
+    [self.kenView animateWithImages:myImages
+                 transitionDuration:12
+                               loop:YES
                         isLandscape:YES];
-    
 }
 
 - (void)viewDidUnload
@@ -85,10 +87,6 @@
 	return YES;
 }
 
-- (void)dealloc {
-    [kenView release];
-    [super dealloc];
-}
 
 #pragma KenBurnsViewDelegate
 - (void)didShowImageAtIndex:(NSUInteger)index
