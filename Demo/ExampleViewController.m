@@ -48,7 +48,7 @@
     self.kenView.delegate = self;
 }
 
-- (void)viewdidAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
     NSArray *myImages = [NSArray arrayWithObjects:
                          [UIImage imageNamed:@"image1.jpeg"],
