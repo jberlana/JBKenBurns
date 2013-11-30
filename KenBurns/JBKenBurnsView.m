@@ -84,6 +84,13 @@ enum JBSourceMode {
     [self _startAnimationsWithData:images transitionDuration:duration loop:shouldLoop isLandscape:isLandscape];
 }
 
+- (void)stopAnimation {
+    if (_nextImageTimer && [_nextImageTimer isValid]) {
+        [_nextImageTimer invalidate];
+        _nextImageTimer = nil;
+    }
+}
+
 - (void)_startAnimationsWithData:(NSArray *)data transitionDuration:(float)duration loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape
 {
     _imagesArray        = [data mutableCopy];
