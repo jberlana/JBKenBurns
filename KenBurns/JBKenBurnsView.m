@@ -38,15 +38,12 @@ enum JBSourceMode {
 @interface JBKenBurnsView (){
     NSMutableArray *_imagesArray;
     CGFloat _showImageDuration;
-    NSInteger _currentIndex;
     BOOL _shouldLoop;
     BOOL _isLandscape;
 
     NSTimer *_nextImageTimer;
     enum JBSourceMode _sourceMode;
 }
-
-@property (nonatomic) int currentImage;
 
 @end
 
@@ -99,26 +96,37 @@ enum JBSourceMode {
     _isLandscape        = isLandscape;
 
     // start at 0
-    _currentIndex       = -1;
+    _currentImageIndex = -1;
 
     _nextImageTimer = [NSTimer scheduledTimerWithTimeInterval:duration target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
     [_nextImageTimer fire];
 }
 
-- (void)nextImage {
-    _currentIndex++;
-
+- (UIImage *)currentImage
+{
     UIImage *image = nil;
     switch (_sourceMode) {
         case JBSourceModeImages:
-            image = _imagesArray[_currentIndex];
+            image = _imagesArray[MAX(self.currentImageIndex, 0)];
             break;
-
+            
         case JBSourceModePaths:
-            image = [UIImage imageWithContentsOfFile:_imagesArray[_currentIndex]];
+            image = [UIImage imageWithContentsOfFile:_imagesArray[MAX(self.currentImageIndex, 0)]];
             break;
     }
+    
+    return image;
+}
 
+- (NSArray *)images
+{
+    return _imagesArray;
+}
+
+- (void)nextImage {
+    _currentImageIndex++;
+
+    UIImage *image = self.currentImage;
     UIImageView *imageView = nil;
     
     float resizeRatio   = -1;
@@ -243,8 +251,8 @@ enum JBSourceMode {
             break;
     }
     
-    NSLog(@"W: IW:%f OW:%f FW:%f MX:%f",image.size.width, optimusWidth, frameWidth, maxMoveX);
-    NSLog(@"H: IH:%f OH:%f FH:%f MY:%f\n",image.size.height, optimusHeight, frameHeight, maxMoveY);
+//    NSLog(@"W: IW:%f OW:%f FW:%f MX:%f",image.size.width, optimusWidth, frameWidth, maxMoveX);
+//    NSLog(@"H: IH:%f OH:%f FH:%f MY:%f\n",image.size.height, optimusHeight, frameHeight, maxMoveY);
     
     CALayer *picLayer    = [CALayer layer];
     picLayer.contents    = (id)image.CGImage;
@@ -282,9 +290,9 @@ enum JBSourceMode {
 
     [self _notifyDelegate];
 
-    if (_currentIndex == _imagesArray.count - 1) {
+    if (_currentImageIndex == _imagesArray.count - 1) {
         if (_shouldLoop) {
-            _currentIndex = -1;
+            _currentImageIndex = -1;
         }else {
             [_nextImageTimer invalidate];
         }
@@ -296,10 +304,10 @@ enum JBSourceMode {
     if (_delegate) {
         if([_delegate respondsToSelector:@selector(didShowImageAtIndex:)])
         {
-            [_delegate didShowImageAtIndex:_currentIndex];
+            [_delegate didShowImageAtIndex:_currentImageIndex];
         }      
         
-        if (_currentIndex == ([_imagesArray count] - 1) && !_shouldLoop && [_delegate respondsToSelector:@selector(didFinishAllAnimations)]) {
+        if (_currentImageIndex == ([_imagesArray count] - 1) && !_shouldLoop && [_delegate respondsToSelector:@selector(didFinishAllAnimations)]) {
             [_delegate didFinishAllAnimations];
         } 
     }
