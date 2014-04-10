@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'JBKenBurnsView'
-  s.version  = '0.3'
+  s.version  = '0.4'
   s.license  = { :type => 'MIT', :file => 'LICENSE' }
   s.summary  = 'UIView that can generate a Ken Burns transition when given an array of UIImage objects.'
   s.framework = 'QuartzCore'
