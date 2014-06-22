@@ -87,7 +87,10 @@ enum JBSourceMode {
         _nextImageTimer = nil;
     }
 }
-
+- (void)addImage:(UIImage *)image
+{
+    [_imagesArray addObject:image];
+}
 - (void)_startAnimationsWithData:(NSArray *)data transitionDuration:(float)duration loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape
 {
     _imagesArray        = [data mutableCopy];
