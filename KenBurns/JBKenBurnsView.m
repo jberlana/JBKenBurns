@@ -23,7 +23,6 @@
 //
 
 #import "JBKenBurnsView.h"
-#include <stdlib.h>
 
 #define enlargeRatio 1.1
 #define imageBufer 3
@@ -147,70 +146,17 @@ enum JBSourceMode {
     UIImage *image = self.currentImage;
     UIImageView *imageView = nil;
     
-    float resizeRatio   = -1;
-    float widthDiff     = -1;
-    float heightDiff    = -1;
     float originX       = -1;
     float originY       = -1;
     float zoomInX       = -1;
     float zoomInY       = -1;
     float moveX         = -1;
     float moveY         = -1;
+    
     float frameWidth    = _isLandscape ? self.bounds.size.width: self.bounds.size.height;
     float frameHeight   = _isLandscape ? self.bounds.size.height: self.bounds.size.width;
     
-    // Wider than screen 
-    if (image.size.width > frameWidth)
-    {
-        widthDiff  = image.size.width - frameWidth;
-        
-        // Higher than screen
-        if (image.size.height > frameHeight)
-        {
-            heightDiff = image.size.height - frameHeight;
-            
-            if (widthDiff > heightDiff)
-                resizeRatio = frameHeight / image.size.height;
-            else
-                resizeRatio = frameWidth / image.size.width;
-        }
-        // No higher than screen
-        else
-        {
-            heightDiff = frameHeight - image.size.height;
-            
-            if (widthDiff > heightDiff)
-                resizeRatio = frameWidth / image.size.width;
-            else
-                resizeRatio = self.bounds.size.height / image.size.height;
-        }
-    }
-    // No wider than screen
-    else
-    {
-        widthDiff  = frameWidth - image.size.width;
-        
-        // Higher than screen
-        if (image.size.height > frameHeight)
-        {
-            heightDiff = image.size.height - frameHeight;
-            
-            if (widthDiff > heightDiff)
-                resizeRatio = image.size.height / frameHeight;
-            else
-                resizeRatio = frameWidth / image.size.width;
-        }
-        // No higher than screen
-        else
-        {
-            heightDiff = frameHeight - image.size.height;
-            
-            if (widthDiff > heightDiff)
-                resizeRatio = frameWidth / image.size.width;
-            else
-                resizeRatio = frameHeight / image.size.height;
-        }
-    }
+    float resizeRatio = [self getResizeRatioFromImage:image width:frameWidth height:frameHeight];
     
     // Resize the image.
     float optimusWidth  = (image.size.width * resizeRatio) * enlargeRatio;
@@ -316,6 +262,69 @@ enum JBSourceMode {
         }
     }
 }
+
+- (float)getResizeRatioFromImage:(UIImage *)image width:(float)frameWidth height:(float)frameHeight
+{
+    float resizeRatio   = -1;
+    float widthDiff     = -1;
+    float heightDiff    = -1;
+    
+    // Wider than screen
+    if (image.size.width > frameWidth)
+    {
+        widthDiff  = image.size.width - frameWidth;
+        
+        // Higher than screen
+        if (image.size.height > frameHeight)
+        {
+            heightDiff = image.size.height - frameHeight;
+            
+            if (widthDiff > heightDiff)
+                resizeRatio = frameHeight / image.size.height;
+            else
+                resizeRatio = frameWidth / image.size.width;
+        }
+        // No higher than screen
+        else
+        {
+            heightDiff = frameHeight - image.size.height;
+            
+            if (widthDiff > heightDiff)
+                resizeRatio = frameWidth / image.size.width;
+            else
+                resizeRatio = self.bounds.size.height / image.size.height;
+        }
+    }
+    // No wider than screen
+    else
+    {
+        widthDiff  = frameWidth - image.size.width;
+        
+        // Higher than screen
+        if (image.size.height > frameHeight)
+        {
+            heightDiff = image.size.height - frameHeight;
+            
+            if (widthDiff > heightDiff)
+                resizeRatio = image.size.height / frameHeight;
+            else
+                resizeRatio = frameWidth / image.size.width;
+        }
+        // No higher than screen
+        else
+        {
+            heightDiff = frameHeight - image.size.height;
+            
+            if (widthDiff > heightDiff)
+                resizeRatio = frameWidth / image.size.width;
+            else
+                resizeRatio = frameHeight / image.size.height;
+        }
+    }
+    
+    return resizeRatio;
+}
+
 
 - (void)notifyDelegate
 {
