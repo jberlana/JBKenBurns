@@ -42,13 +42,65 @@
 @property (nonatomic,weak) id<KenBurnsViewDelegate> delegate;
 @property (nonatomic,assign,readonly) NSInteger currentImageIndex;
 
+///----------------------------------
+/// @name Initialization
+///----------------------------------
+
+/**
+ Start the animation with a NSArray of paths to images.
+ @param imagePaths  A NSArray of paths to images.
+ @param time        The number of second of each image.
+ @param isLoop      YES if you want to play the animation in loop.
+ @param isLandscape YES if the view is in landscape mode.
+ @since 0.3
+ */
 - (void)animateWithImagePaths:(NSArray *)imagePaths transitionDuration:(float)time loop:(BOOL)isLoop isLandscape:(BOOL)isLandscape;
+
+/**
+ Start the animation with a NSArray of UIImages.
+ @param imagePaths  A NSArray of images.
+ @param time        The number of second of each image.
+ @param isLoop      YES if you want to play the animation in loop.
+ @param isLandscape YES if the view is in landscape mode.
+ @since 0.3
+ */
 - (void)animateWithImages:(NSArray *)images transitionDuration:(float)time loop:(BOOL)isLoop isLandscape:(BOOL)isLandscape;
 
+
+///----------------------------------
+/// @name Manage animation
+///----------------------------------
+
+/**
+ Stop the current animation.
+ @since 0.3
+ */
 - (void)stopAnimation;
+
+/**
+ Add an image to the current animation.
+ @param image A UIImage to add to the animation playback.
+ @since 0.3
+ */
 - (void)addImage:(UIImage *)image;
 
+
+///----------------------------------
+/// @name Animation getters
+///----------------------------------
+
+/**
+ Returns the NSArray of current images on the animation.
+ @return A NSArray with the images in the animation.
+ @since 0.3
+ */
 - (NSArray *)images;
+
+/**
+ Return the current image on the animation.
+ @return A UIImage with the image on top of the animation.
+ @since 0.3
+ */
 - (UIImage *)currentImage;
 
 @end

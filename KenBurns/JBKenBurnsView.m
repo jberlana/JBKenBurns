@@ -281,7 +281,8 @@ enum JBSourceMode {
     [[self layer] addAnimation:animation forKey:nil];
     
     // Remove the previous view
-    if ([[self subviews] count] > 0){
+    if ([[self subviews] count] > 0)
+    {
         UIView *oldImageView = [[self subviews] objectAtIndex:0];
         [oldImageView removeFromSuperview];
         oldImageView = nil;
@@ -307,7 +308,8 @@ enum JBSourceMode {
     {
         if (_shouldLoop) {
             _currentImageIndex = -1;
-        }else {
+        }
+        else {
             [_nextImageTimer invalidate];
         }
     }
@@ -315,15 +317,15 @@ enum JBSourceMode {
 
 - (void)notifyDelegate
 {
-    if (_delegate)
+    if([_delegate respondsToSelector:@selector(kenBurns:didShowImageAtIndex:)]) {
+        [_delegate kenBurns:self didShowImageAtIndex:_currentImageIndex];
+    }
+    
+    if (_currentImageIndex == ([_imagesArray count] - 1) &&
+        !_shouldLoop &&
+        [_delegate respondsToSelector:@selector(kenBurns:didFinishAllImages:)])
     {
-        if([_delegate respondsToSelector:@selector(didShowImageAtIndex:)]) {
-            [_delegate kenBurns:self didShowImageAtIndex:_currentImageIndex];
-        }      
-        
-        if (_currentImageIndex == ([_imagesArray count] - 1) && !_shouldLoop && [_delegate respondsToSelector:@selector(didFinishAllAnimations)]) {
-            [_delegate kenBurns:self didFinishAllImages:[_imagesArray copy]];
-        } 
+        [_delegate kenBurns:self didFinishAllImages:[_imagesArray copy]];
     }
 }
 

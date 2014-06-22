@@ -93,7 +93,8 @@
 
 - (void)kenBurns:(JBKenBurnsView *)kenBurns didShowImageAtIndex:(NSUInteger)index
 {
-    NSLog(@"Finished image: %d", index);
+    UIImage *currentImage = [kenBurns currentImage];
+    self.statuslabel.text = [NSString stringWithFormat:NSLocalizedString(@"Animating image %d (%.2f x %.2f)",),index,currentImage.size.width, currentImage.size.height];
 }
 
 - (void)kenBurns:(JBKenBurnsView *)kenBurns didFinishAllImages:(NSArray *)images
