@@ -71,18 +71,18 @@ enum JBSourceMode {
     self.layer.masksToBounds = YES;
 }
 
-- (void)animateWithImagePaths:(NSArray *)imagePaths transitionDuration:(float)duration loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape
+- (void)animateWithImagePaths:(NSArray *)imagePaths transitionDuration:(float)duration initialDelay:(float)delay loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape
 {
     _sourceMode = JBSourceModePaths;
-    [self startAnimationsWithData:imagePaths transitionDuration:duration loop:shouldLoop isLandscape:isLandscape];
+    [self startAnimationsWithData:imagePaths transitionDuration:duration initialDelay:delay loop:shouldLoop isLandscape:isLandscape];
 }
 
-- (void)animateWithImages:(NSArray *)images transitionDuration:(float)duration loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape {
+- (void)animateWithImages:(NSArray *)images transitionDuration:(float)duration initialDelay:(float)delay loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape {
     _sourceMode = JBSourceModeImages;
-    [self startAnimationsWithData:images transitionDuration:duration loop:shouldLoop isLandscape:isLandscape];
+    [self startAnimationsWithData:images transitionDuration:duration initialDelay:delay loop:shouldLoop isLandscape:isLandscape];
 }
 
-- (void)startAnimationsWithData:(NSArray *)data transitionDuration:(float)duration loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape
+- (void)startAnimationsWithData:(NSArray *)data transitionDuration:(float)duration initialDelay:(float)delay loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape
 {
     _imagesArray        = [data mutableCopy];
     _showImageDuration  = duration;
@@ -92,8 +92,10 @@ enum JBSourceMode {
     // start at 0
     _currentImageIndex = -1;
     
-    _nextImageTimer = [NSTimer scheduledTimerWithTimeInterval:duration target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
-    [_nextImageTimer fire];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _nextImageTimer = [NSTimer scheduledTimerWithTimeInterval:duration target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
+        [_nextImageTimer fire];
+    });
 }
 
 

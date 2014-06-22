@@ -50,6 +50,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    
     NSArray *myImages = @[[UIImage imageNamed:@"image1.jpeg"],
                           [UIImage imageNamed:@"image2.jpeg"],
                           [UIImage imageNamed:@"image3.jpeg"],
@@ -57,9 +59,12 @@
                           [UIImage imageNamed:@"image5.png"]];
     
     [self.kenView animateWithImages:myImages
-                 transitionDuration:2
+                 transitionDuration:6
+                       initialDelay:0
                                loop:YES
                         isLandscape:YES];
+    
+    self.statuslabel.text = @"";
 }
 
 - (void)viewDidUnload

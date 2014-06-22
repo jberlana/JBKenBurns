@@ -54,7 +54,11 @@
  @param isLandscape YES if the view is in landscape mode.
  @since 0.3
  */
-- (void)animateWithImagePaths:(NSArray *)imagePaths transitionDuration:(float)time loop:(BOOL)isLoop isLandscape:(BOOL)isLandscape;
+- (void)animateWithImagePaths:(NSArray *)imagePaths
+           transitionDuration:(float)time
+                 initialDelay:(float)delay
+                         loop:(BOOL)isLoop
+                  isLandscape:(BOOL)isLandscape;
 
 /**
  Start the animation with a NSArray of UIImages.
@@ -64,7 +68,11 @@
  @param isLandscape YES if the view is in landscape mode.
  @since 0.3
  */
-- (void)animateWithImages:(NSArray *)images transitionDuration:(float)time loop:(BOOL)isLoop isLandscape:(BOOL)isLandscape;
+- (void)animateWithImages:(NSArray *)images
+       transitionDuration:(float)time
+             initialDelay:(float)delay
+                     loop:(BOOL)isLoop
+              isLandscape:(BOOL)isLandscape;
 
 
 ///----------------------------------
