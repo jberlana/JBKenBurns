@@ -96,7 +96,7 @@ Build and run the `KenBurnsDemo` project in Xcode to see `JBKenBurnsView` in act
 - If you **have a feature request**, open an issue.
 - If you **want to contribute**, submit a pull request.
 
-Thanks a lot to all the people that has collaborated on this library:
+Thanks a lot to all the people that have collaborated on this library:
 
 - Peter Steinberger [@steipete](https://github.com/steipete)
 - Orta [@orta](https://github.com/orta)
