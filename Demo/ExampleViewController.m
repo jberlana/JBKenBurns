@@ -57,7 +57,7 @@
                           [UIImage imageNamed:@"image5.png"]];
     
     [self.kenView animateWithImages:myImages
-                 transitionDuration:12
+                 transitionDuration:2
                                loop:YES
                         isLandscape:YES];
 }
@@ -82,6 +82,12 @@
 	return YES;
 }
 
+#pragma mark - Actions
+
+- (IBAction)stopAnimation:(id)sender
+{
+    [self.kenView stopAnimation];
+}
 
 #pragma mark - KenBurnsViewDelegate
 
@@ -94,6 +100,5 @@
 {
     NSLog(@"Yay all done!");
 }
-
 
 @end

@@ -27,6 +27,9 @@
 
 @interface ExampleViewController : UIViewController <KenBurnsViewDelegate>
 
-@property (nonatomic, retain) IBOutlet JBKenBurnsView *kenView;
+@property (nonatomic, strong) IBOutlet JBKenBurnsView *kenView;
+@property (weak, nonatomic) IBOutlet UILabel *statuslabel;
+
+- (IBAction)stopAnimation:(id)sender;
 
 @end

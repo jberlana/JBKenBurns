@@ -101,6 +101,8 @@ enum JBSourceMode {
 
 - (void)stopAnimation
 {
+    [self.layer removeAllAnimations];
+    
     if (_nextImageTimer && [_nextImageTimer isValid]) {
         [_nextImageTimer invalidate];
         _nextImageTimer = nil;
@@ -165,46 +167,43 @@ enum JBSourceMode {
         {
             heightDiff = image.size.height - frameHeight;
             
-            if (widthDiff > heightDiff) 
+            if (widthDiff > heightDiff)
                 resizeRatio = frameHeight / image.size.height;
             else
                 resizeRatio = frameWidth / image.size.width;
-            
-        // No higher than screen [OK]
         }
+        // No higher than screen
         else
         {
             heightDiff = frameHeight - image.size.height;
             
-            if (widthDiff > heightDiff) 
+            if (widthDiff > heightDiff)
                 resizeRatio = frameWidth / image.size.width;
             else
                 resizeRatio = self.bounds.size.height / image.size.height;
         }
-        
-    // No wider than screen
     }
+    // No wider than screen
     else
     {
         widthDiff  = frameWidth - image.size.width;
         
-        // Higher than screen [OK]
+        // Higher than screen
         if (image.size.height > frameHeight)
         {
             heightDiff = image.size.height - frameHeight;
             
-            if (widthDiff > heightDiff) 
+            if (widthDiff > heightDiff)
                 resizeRatio = image.size.height / frameHeight;
             else
                 resizeRatio = frameWidth / image.size.width;
-            
-        // No higher than screen [OK]
         }
+        // No higher than screen
         else
         {
             heightDiff = frameHeight - image.size.height;
             
-            if (widthDiff > heightDiff) 
+            if (widthDiff > heightDiff)
                 resizeRatio = frameWidth / image.size.width;
             else
                 resizeRatio = frameHeight / image.size.height;
@@ -291,16 +290,16 @@ enum JBSourceMode {
     [self addSubview:imageView];
     
     // Generates the animation
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:_showImageDuration + 2];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    CGAffineTransform rotate    = CGAffineTransformMakeRotation(rotation);
-    CGAffineTransform moveRight = CGAffineTransformMakeTranslation(moveX, moveY);
-    CGAffineTransform combo1    = CGAffineTransformConcat(rotate, moveRight);
-    CGAffineTransform zoomIn    = CGAffineTransformMakeScale(zoomInX, zoomInY);
-    CGAffineTransform transform = CGAffineTransformConcat(zoomIn, combo1);
-    imageView.transform = transform;
-    [UIView commitAnimations];
+    [UIView animateWithDuration:_showImageDuration + 2 delay:0 options:UIViewAnimationCurveEaseInOut animations:^
+     {
+         CGAffineTransform rotate    = CGAffineTransformMakeRotation(rotation);
+         CGAffineTransform moveRight = CGAffineTransformMakeTranslation(moveX, moveY);
+         CGAffineTransform combo1    = CGAffineTransformConcat(rotate, moveRight);
+         CGAffineTransform zoomIn    = CGAffineTransformMakeScale(zoomInX, zoomInY);
+         CGAffineTransform transform = CGAffineTransformConcat(zoomIn, combo1);
+         imageView.transform = transform;
+         
+     } completion:^(BOOL finished) {}];
 
     [self notifyDelegate];
 
