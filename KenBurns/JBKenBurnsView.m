@@ -30,25 +30,26 @@
 
 enum JBSourceMode {
     JBSourceModeImages,
-//    JBSourceModeURLs,
     JBSourceModePaths
 };
 
 // Private interface
-@interface JBKenBurnsView (){
-    NSMutableArray *_imagesArray;
-    CGFloat _showImageDuration;
-    BOOL _shouldLoop;
-    BOOL _isLandscape;
+@interface JBKenBurnsView ()
 
-    NSTimer *_nextImageTimer;
-    enum JBSourceMode _sourceMode;
-}
+@property (nonatomic, strong) NSMutableArray *imagesArray;
+@property (nonatomic, strong) NSTimer *nextImageTimer;
+
+@property (nonatomic, assign) CGFloat showImageDuration;
+@property (nonatomic, assign) BOOL shouldLoop;
+@property (nonatomic, assign) BOOL isLandscape;
+@property (nonatomic, assign) enum JBSourceMode sourceMode;
 
 @end
 
 
 @implementation JBKenBurnsView
+
+#pragma mark - Initialization
 
 - (id)init
 {
@@ -70,45 +71,59 @@ enum JBSourceMode {
     self.layer.masksToBounds = YES;
 }
 
-- (void) animateWithImagePaths:(NSArray *)imagePaths transitionDuration:(float)duration loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape
+- (void)animateWithImagePaths:(NSArray *)imagePaths transitionDuration:(float)duration loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape
 {
     _sourceMode = JBSourceModePaths;
-    [self _startAnimationsWithData:imagePaths transitionDuration:duration loop:shouldLoop isLandscape:isLandscape];
+    [self startAnimationsWithData:imagePaths transitionDuration:duration loop:shouldLoop isLandscape:isLandscape];
 }
 
-- (void) animateWithImages:(NSArray *)images transitionDuration:(float)duration loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape {
+- (void)animateWithImages:(NSArray *)images transitionDuration:(float)duration loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape {
     _sourceMode = JBSourceModeImages;
-    [self _startAnimationsWithData:images transitionDuration:duration loop:shouldLoop isLandscape:isLandscape];
+    [self startAnimationsWithData:images transitionDuration:duration loop:shouldLoop isLandscape:isLandscape];
 }
 
-- (void)stopAnimation {
-    if (_nextImageTimer && [_nextImageTimer isValid]) {
-        [_nextImageTimer invalidate];
-        _nextImageTimer = nil;
-    }
-}
-- (void)addImage:(UIImage *)image
-{
-    [_imagesArray addObject:image];
-}
-- (void)_startAnimationsWithData:(NSArray *)data transitionDuration:(float)duration loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape
+- (void)startAnimationsWithData:(NSArray *)data transitionDuration:(float)duration loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape
 {
     _imagesArray        = [data mutableCopy];
     _showImageDuration  = duration;
     _shouldLoop         = shouldLoop;
     _isLandscape        = isLandscape;
-
+    
     // start at 0
     _currentImageIndex = -1;
-
+    
     _nextImageTimer = [NSTimer scheduledTimerWithTimeInterval:duration target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
     [_nextImageTimer fire];
+}
+
+
+#pragma mark - Animation control
+
+- (void)stopAnimation
+{
+    if (_nextImageTimer && [_nextImageTimer isValid]) {
+        [_nextImageTimer invalidate];
+        _nextImageTimer = nil;
+    }
+}
+
+- (void)addImage:(UIImage *)image
+{
+    [_imagesArray addObject:image];
+}
+
+#pragma mark - Image management
+
+- (NSArray *)images
+{
+    return _imagesArray;
 }
 
 - (UIImage *)currentImage
 {
     UIImage *image = nil;
-    switch (_sourceMode) {
+    switch (_sourceMode)
+    {
         case JBSourceModeImages:
             image = _imagesArray[MAX(self.currentImageIndex, 0)];
             break;
@@ -121,12 +136,8 @@ enum JBSourceMode {
     return image;
 }
 
-- (NSArray *)images
+- (void)nextImage
 {
-    return _imagesArray;
-}
-
-- (void)nextImage {
     _currentImageIndex++;
 
     UIImage *image = self.currentImage;
@@ -291,9 +302,10 @@ enum JBSourceMode {
     imageView.transform = transform;
     [UIView commitAnimations];
 
-    [self _notifyDelegate];
+    [self notifyDelegate];
 
-    if (_currentImageIndex == _imagesArray.count - 1) {
+    if (_currentImageIndex == _imagesArray.count - 1)
+    {
         if (_shouldLoop) {
             _currentImageIndex = -1;
         }else {
@@ -302,19 +314,18 @@ enum JBSourceMode {
     }
 }
 
-- (void) _notifyDelegate
+- (void)notifyDelegate
 {
-    if (_delegate) {
-        if([_delegate respondsToSelector:@selector(didShowImageAtIndex:)])
-        {
-            [_delegate didShowImageAtIndex:_currentImageIndex];
+    if (_delegate)
+    {
+        if([_delegate respondsToSelector:@selector(didShowImageAtIndex:)]) {
+            [_delegate kenBurns:self didShowImageAtIndex:_currentImageIndex];
         }      
         
         if (_currentImageIndex == ([_imagesArray count] - 1) && !_shouldLoop && [_delegate respondsToSelector:@selector(didFinishAllAnimations)]) {
-            [_delegate didFinishAllAnimations];
+            [_delegate kenBurns:self didFinishAllImages:[_imagesArray copy]];
         } 
     }
-    
 }
 
 @end

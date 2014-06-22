@@ -50,12 +50,11 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSArray *myImages = [NSArray arrayWithObjects:
-                         [UIImage imageNamed:@"image1.jpeg"],
-                         [UIImage imageNamed:@"image2.jpeg"],
-                         [UIImage imageNamed:@"image3.jpeg"],
-                         [UIImage imageNamed:@"image4.png"],
-                         [UIImage imageNamed:@"image5.png"], nil];
+    NSArray *myImages = @[[UIImage imageNamed:@"image1.jpeg"],
+                          [UIImage imageNamed:@"image2.jpeg"],
+                          [UIImage imageNamed:@"image3.jpeg"],
+                          [UIImage imageNamed:@"image4.png"],
+                          [UIImage imageNamed:@"image5.png"]];
     
     [self.kenView animateWithImages:myImages
                  transitionDuration:12
@@ -65,20 +64,16 @@
 
 - (void)viewDidUnload
 {
-    self.kenView.delegate = nil;
+    [self.kenView stopAnimation];
     [self setKenView:nil];
+    
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -88,13 +83,14 @@
 }
 
 
-#pragma KenBurnsViewDelegate
-- (void)didShowImageAtIndex:(NSUInteger)index
+#pragma mark - KenBurnsViewDelegate
+
+- (void)kenBurns:(JBKenBurnsView *)kenBurns didShowImageAtIndex:(NSUInteger)index
 {
     NSLog(@"Finished image: %d", index);
 }
 
-- (void)didFinishAllAnimations
+- (void)kenBurns:(JBKenBurnsView *)kenBurns didFinishAllImages:(NSArray *)images
 {
     NSLog(@"Yay all done!");
 }

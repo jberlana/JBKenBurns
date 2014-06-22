@@ -27,26 +27,28 @@
 #import <QuartzCore/QuartzCore.h>
 
 @class JBKenBurnsView;
+@protocol KenBurnsViewDelegate <NSObject>
 
-#pragma - KenBurnsViewDelegate
-@protocol JBKenBurnsViewDelegate <NSObject>
 @optional
-- (void)didShowImageAtIndex:(NSUInteger)index;
-- (void)didFinishAllAnimations;
+- (void)kenBurns:(JBKenBurnsView *)kenBurns didShowImageAtIndex:(NSUInteger)index;
+- (void)kenBurns:(JBKenBurnsView *)kenBurns didFinishAllImages:(NSArray *)images;
+
 @end
+
+
 
 @interface JBKenBurnsView : UIView
 
-@property (unsafe_unretained) id<JBKenBurnsViewDelegate> delegate;
+@property (nonatomic,weak) id<KenBurnsViewDelegate> delegate;
+@property (nonatomic,assign,readonly) NSInteger currentImageIndex;
 
-@property (readonly) NSArray *images;
-@property (readonly) UIImage *currentImage;
-@property (readonly) NSInteger currentImageIndex;
+- (void)animateWithImagePaths:(NSArray *)imagePaths transitionDuration:(float)time loop:(BOOL)isLoop isLandscape:(BOOL)isLandscape;
+- (void)animateWithImages:(NSArray *)images transitionDuration:(float)time loop:(BOOL)isLoop isLandscape:(BOOL)isLandscape;
 
-- (void) animateWithImagePaths:(NSArray *)imagePaths transitionDuration:(float)time loop:(BOOL)isLoop isLandscape:(BOOL)isLandscape;
-- (void) animateWithImages:(NSArray *)images transitionDuration:(float)time loop:(BOOL)isLoop isLandscape:(BOOL)isLandscape;
-- (void) stopAnimation;
-- (void) addImage:(UIImage *)image;
+- (void)stopAnimation;
+- (void)addImage:(UIImage *)image;
+
+- (NSArray *)images;
+- (UIImage *)currentImage;
+
 @end
-
-
