@@ -30,7 +30,7 @@
 @protocol KenBurnsViewDelegate <NSObject>
 
 @optional
-- (void)kenBurns:(JBKenBurnsView *)kenBurns didShowImageAtIndex:(NSUInteger)index;
+- (void)kenBurns:(JBKenBurnsView *)kenBurns didShowImage:(UIImage *)image atIndex:(NSUInteger)index;
 - (void)kenBurns:(JBKenBurnsView *)kenBurns didFinishAllImages:(NSArray *)images;
 
 @end

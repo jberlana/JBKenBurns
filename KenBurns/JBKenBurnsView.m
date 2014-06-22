@@ -328,8 +328,8 @@ enum JBSourceMode {
 
 - (void)notifyDelegate
 {
-    if([_delegate respondsToSelector:@selector(kenBurns:didShowImageAtIndex:)]) {
-        [_delegate kenBurns:self didShowImageAtIndex:_currentImageIndex];
+    if([_delegate respondsToSelector:@selector(kenBurns:didShowImage:atIndex:)]) {
+        [_delegate kenBurns:self didShowImage:[self currentImage] atIndex:_currentImageIndex];
     }
     
     if (_currentImageIndex == ([_imagesArray count] - 1) &&

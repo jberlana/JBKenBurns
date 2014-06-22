@@ -96,10 +96,9 @@
 
 #pragma mark - KenBurnsViewDelegate
 
-- (void)kenBurns:(JBKenBurnsView *)kenBurns didShowImageAtIndex:(NSUInteger)index
+- (void)kenBurns:(JBKenBurnsView *)kenBurns didShowImage:(UIImage *)image atIndex:(NSUInteger)index
 {
-    UIImage *currentImage = [kenBurns currentImage];
-    self.statuslabel.text = [NSString stringWithFormat:NSLocalizedString(@"Animating image %d (%.2f x %.2f)",),index,currentImage.size.width, currentImage.size.height];
+    self.statuslabel.text = [NSString stringWithFormat:NSLocalizedString(@"Animating image %d (%.2f x %.2f)",),index,image.size.width, image.size.height];
 }
 
 - (void)kenBurns:(JBKenBurnsView *)kenBurns didFinishAllImages:(NSArray *)images
