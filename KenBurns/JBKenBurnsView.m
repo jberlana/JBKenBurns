@@ -239,7 +239,7 @@ enum JBSourceMode {
     [self addSubview:imageView];
     
     // Generates the animation
-    [UIView animateWithDuration:_showImageDuration + 2 delay:0 options:UIViewAnimationCurveEaseInOut animations:^
+    [UIView animateWithDuration:_showImageDuration + 2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
      {
          CGAffineTransform rotate    = CGAffineTransformMakeRotation(rotation);
          CGAffineTransform moveRight = CGAffineTransformMakeTranslation(moveX, moveY);
