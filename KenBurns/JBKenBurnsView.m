@@ -169,8 +169,9 @@ enum JBSourceMode {
     float maxMoveY = optimusHeight - frameHeight;
     
     float rotation = (arc4random() % 9) / 100;
+    int moveType = arc4random() % 4;
     
-    switch (arc4random() % 4) {
+    switch (moveType) {
         case 0:
             originX = 0;
             originY = 0;
@@ -209,6 +210,12 @@ enum JBSourceMode {
             
         default:
             NSLog(@"Unknown random number found in JBKenBurnsView _animate");
+            originX = 0;
+            originY = 0;
+            zoomInX = 1;
+            zoomInY = 1;
+            moveX   = -maxMoveX;
+            moveY   = -maxMoveY;
             break;
     }
     
@@ -229,8 +236,7 @@ enum JBSourceMode {
     [[self layer] addAnimation:animation forKey:nil];
     
     // Remove the previous view
-    if ([[self subviews] count] > 0)
-    {
+    if ([[self subviews] count] > 0) {
         UIView *oldImageView = [[self subviews] objectAtIndex:0];
         [oldImageView removeFromSuperview];
         oldImageView = nil;
@@ -252,14 +258,10 @@ enum JBSourceMode {
 
     [self notifyDelegate];
 
-    if (_currentImageIndex == _imagesArray.count - 1)
-    {
-        if (_shouldLoop) {
-            _currentImageIndex = -1;
-        }
-        else {
-            [_nextImageTimer invalidate];
-        }
+    // Restart or stop
+    if (_currentImageIndex == _imagesArray.count - 1) {
+        if (_shouldLoop) { _currentImageIndex = -1; }
+        else { [_nextImageTimer invalidate]; }
     }
 }
 

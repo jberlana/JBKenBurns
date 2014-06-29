@@ -52,7 +52,8 @@
 {
     [super viewDidAppear:animated];
     
-    NSArray *myImages = @[[UIImage imageNamed:@"image1.jpeg"],
+    NSArray *myImages = @[[UIImage imageNamed:@"image0.jpg"],
+                          [UIImage imageNamed:@"image1.jpeg"],
                           [UIImage imageNamed:@"image2.jpeg"],
                           [UIImage imageNamed:@"image3.jpeg"],
                           [UIImage imageNamed:@"image4.png"],
