@@ -22,7 +22,7 @@
 		42B1796A142CCBE3006D5610 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B17969142CCBE3006D5610 /* Foundation.framework */; };
 		42B1796C142CCBE3006D5610 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B1796B142CCBE3006D5610 /* CoreGraphics.framework */; };
 		42B17994142CD2EA006D5610 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B17993142CD2EA006D5610 /* QuartzCore.framework */; };
-		42BF1B5219601A1600DEB5E2 /* image0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42BF1B5119601A1600DEB5E2 /* image0.jpg */; };
+		42BF1B5419601D7000DEB5E2 /* image0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42BF1B5319601D7000DEB5E2 /* image0.jpg */; };
 		42DBE1EE148B9E7A00A0D5B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DBE1EA148B9E7A00A0D5B1 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,7 @@
 		42B17969142CCBE3006D5610 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		42B1796B142CCBE3006D5610 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		42B17993142CD2EA006D5610 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		42BF1B5119601A1600DEB5E2 /* image0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image0.jpg; sourceTree = SOURCE_ROOT; };
+		42BF1B5319601D7000DEB5E2 /* image0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image0.jpg; path = Demo/images/image0.jpg; sourceTree = SOURCE_ROOT; };
 		42DBE1E8148B9E7A00A0D5B1 /* KenBurnsDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "KenBurnsDemo-Info.plist"; path = "Demo/KenBurnsDemo-Info.plist"; sourceTree = SOURCE_ROOT; };
 		42DBE1E9148B9E7A00A0D5B1 /* KenBurnsDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KenBurnsDemo-Prefix.pch"; path = "Demo/KenBurnsDemo-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		42DBE1EA148B9E7A00A0D5B1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Demo/main.m; sourceTree = SOURCE_ROOT; };
@@ -135,7 +135,7 @@
 		42B1798E142CD0FC006D5610 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				42BF1B5119601A1600DEB5E2 /* image0.jpg */,
+				42BF1B5319601D7000DEB5E2 /* image0.jpg */,
 				42AC4484148BA12300F76C22 /* image1.jpeg */,
 				42AC4485148BA12300F76C22 /* image2.jpeg */,
 				42AC4486148BA12300F76C22 /* image3.jpeg */,
@@ -199,7 +199,7 @@
 				42AC447B148BA08300F76C22 /* ExampleViewController.xib in Resources */,
 				42AC4480148BA0F500F76C22 /* MainWindow.xib in Resources */,
 				42AC4489148BA12300F76C22 /* image1.jpeg in Resources */,
-				42BF1B5219601A1600DEB5E2 /* image0.jpg in Resources */,
+				42BF1B5419601D7000DEB5E2 /* image0.jpg in Resources */,
 				42AC448A148BA12300F76C22 /* image2.jpeg in Resources */,
 				42AC448B148BA12300F76C22 /* image3.jpeg in Resources */,
 				42AC448C148BA12300F76C22 /* image4.png in Resources */,
