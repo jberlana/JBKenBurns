@@ -102,7 +102,7 @@ Thanks a lot to all the people that have collaborated on this library:
 - Orta [@orta](https://github.com/orta)
 - Almas Adilbek [@mixdesign](https://github.com/mixdesign)
 - Boska [@boska](https://github.com/boska)
-- Alec Gorge [@boska](https://github.com/alecgorge)
+- Alec Gorge [@alecgorge](https://github.com/alecgorge)
 - [@scgpilot](https://github.com/scgpilot)
 - [@michaelcho](https://github.com/michaelcho)
 - [@mystersu](https://github.com/mystersu)
