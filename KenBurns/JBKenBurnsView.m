@@ -124,15 +124,16 @@ enum JBSourceMode {
 
 - (UIImage *)currentImage
 {
-    UIImage *image = nil;
+    UIImage * image = nil;
+    id imageInfo = [_imagesArray count] > 0 ? _imagesArray[MIN([_imagesArray count] - 1, MAX(self.currentImageIndex, 0))] : nil;
     switch (_sourceMode)
     {
         case JBSourceModeImages:
-            image = _imagesArray[MAX(self.currentImageIndex, 0)];
+            image = imageInfo;
             break;
             
         case JBSourceModePaths:
-            image = [UIImage imageWithContentsOfFile:_imagesArray[MAX(self.currentImageIndex, 0)]];
+            image = [UIImage imageWithContentsOfFile:imageInfo];
             break;
     }
     
