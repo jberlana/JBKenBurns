@@ -68,6 +68,7 @@ enum JBSourceMode {
 {
     self.backgroundColor = [UIColor clearColor];
     self.layer.masksToBounds = YES;
+    self.zoomMode = JBZoomModeIn;
 }
 
 - (void)animateWithImagePaths:(NSArray *)imagePaths transitionDuration:(float)duration initialDelay:(float)delay loop:(BOOL)shouldLoop isLandscape:(BOOL)isLandscape
@@ -245,15 +246,46 @@ enum JBSourceMode {
     
     [self addSubview:imageView];
     
+    CGAffineTransform rotate    = CGAffineTransformMakeRotation(rotation);
+    CGAffineTransform moveRight = CGAffineTransformMakeTranslation(moveX, moveY);
+    CGAffineTransform combo1    = CGAffineTransformConcat(rotate, moveRight);
+    CGAffineTransform zoomIn    = CGAffineTransformMakeScale(zoomInX, zoomInY);
+    CGAffineTransform transform = CGAffineTransformConcat(zoomIn, combo1);
+    
+    CGAffineTransform zoomedTransform = transform;
+    CGAffineTransform standardTransform = CGAffineTransformIdentity;
+    
+    CGAffineTransform startTransform = CGAffineTransformIdentity;
+    CGAffineTransform finishTransform = CGAffineTransformIdentity;
+    
+    switch (self.zoomMode) {
+        case JBZoomModeIn:
+            startTransform = standardTransform;
+            finishTransform = zoomedTransform;
+            break;
+        case JBZoomModeOut:
+            startTransform = zoomedTransform;
+            finishTransform = standardTransform;
+            break;
+        case JBZoomModeRandom: {
+            if ([self randomBool]) {
+                startTransform = zoomedTransform;
+                finishTransform = standardTransform;
+            }
+            else {
+                startTransform = standardTransform;
+                finishTransform = zoomedTransform;
+            }
+        }
+            break;
+    }
+    
+    imageView.transform = startTransform;
+    
     // Generates the animation
     [UIView animateWithDuration:_showImageDuration + 2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
      {
-         CGAffineTransform rotate    = CGAffineTransformMakeRotation(rotation);
-         CGAffineTransform moveRight = CGAffineTransformMakeTranslation(moveX, moveY);
-         CGAffineTransform combo1    = CGAffineTransformConcat(rotate, moveRight);
-         CGAffineTransform zoomIn    = CGAffineTransformMakeScale(zoomInX, zoomInY);
-         CGAffineTransform transform = CGAffineTransformConcat(zoomIn, combo1);
-         imageView.transform = transform;
+         imageView.transform = finishTransform;
          
      } completion:^(BOOL finished) {}];
 
@@ -341,6 +373,11 @@ enum JBSourceMode {
     {
         [_delegate kenBurns:self didFinishAllImages:[_imagesArray copy]];
     }
+}
+
+- (BOOL)randomBool
+{
+    return arc4random_uniform(100) < 50;
 }
 
 @end
