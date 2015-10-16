@@ -324,7 +324,7 @@ enum JBSourceMode {
         {
             heightDiff = frameHeight - image.size.height;
             
-            if (widthDiff > heightDiff)
+            if (widthDiff < heightDiff)
                 resizeRatio = frameWidth / image.size.width;
             else
                 resizeRatio = self.bounds.size.height / image.size.height;
@@ -350,7 +350,7 @@ enum JBSourceMode {
         {
             heightDiff = frameHeight - image.size.height;
             
-            if (widthDiff > heightDiff)
+            if (widthDiff < heightDiff)
                 resizeRatio = frameWidth / image.size.width;
             else
                 resizeRatio = frameHeight / image.size.height;
