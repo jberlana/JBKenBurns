@@ -300,64 +300,10 @@ enum JBSourceMode {
 
 - (float)getResizeRatioFromImage:(UIImage *)image width:(float)frameWidth height:(float)frameHeight
 {
-    float resizeRatio   = -1;
-    float widthDiff     = -1;
-    float heightDiff    = -1;
+    float widthRatio  = frameWidth / image.size.width;
+    float heightRatio = frameHeight / image.size.height;
     
-    // Wider than screen
-    if (image.size.width > frameWidth)
-    {
-        widthDiff  = image.size.width - frameWidth;
-        
-        // Higher than screen
-        if (image.size.height > frameHeight)
-        {
-            heightDiff = image.size.height - frameHeight;
-            
-            if (widthDiff > heightDiff)
-                resizeRatio = frameHeight / image.size.height;
-            else
-                resizeRatio = frameWidth / image.size.width;
-        }
-        // No higher than screen
-        else
-        {
-            heightDiff = frameHeight - image.size.height;
-            
-            if (widthDiff < heightDiff)
-                resizeRatio = frameWidth / image.size.width;
-            else
-                resizeRatio = self.bounds.size.height / image.size.height;
-        }
-    }
-    // No wider than screen
-    else
-    {
-        widthDiff  = frameWidth - image.size.width;
-        
-        // Higher than screen
-        if (image.size.height > frameHeight)
-        {
-            heightDiff = image.size.height - frameHeight;
-            
-            if (widthDiff > heightDiff)
-                resizeRatio = image.size.height / frameHeight;
-            else
-                resizeRatio = frameWidth / image.size.width;
-        }
-        // No higher than screen
-        else
-        {
-            heightDiff = frameHeight - image.size.height;
-            
-            if (widthDiff < heightDiff)
-                resizeRatio = frameWidth / image.size.width;
-            else
-                resizeRatio = frameHeight / image.size.height;
-        }
-    }
-    
-    return resizeRatio;
+    return widthRatio > heightRatio ? widthRatio : heightRatio;
 }
 
 
