@@ -89,6 +89,10 @@ There is a protocol that notifies to the delegate when an image changes or the s
 
 Build and run the `KenBurnsDemo` project in Xcode to see `JBKenBurnsView` in action.
 
+## Swift version
+
+[@gatada](https://github.com/gatada) wrote a Swift version of `JBKenBurnsView` that you can find [here](https://github.com/Gatada/JBKenBurnsView).
+
 
 ## Communication
 
