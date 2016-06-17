@@ -35,19 +35,18 @@
 
 @end
 
-
-NS_ENUM(NSInteger, JBZoomMode) {
+typedef enum {
     JBZoomModeIn,
     JBZoomModeOut,
     JBZoomModeRandom
-};
+} JBZoomMode;
 
 
 @interface JBKenBurnsView : UIView
 
 @property (nonatomic,weak) id<KenBurnsViewDelegate> delegate;
 @property (nonatomic,assign,readonly) NSInteger currentImageIndex;
-@property (nonatomic,assign) enum JBZoomMode zoomMode;
+@property (nonatomic,assign) JBZoomMode zoomMode;
 
 ///----------------------------------
 /// @name Initialization
