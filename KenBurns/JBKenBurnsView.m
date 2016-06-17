@@ -61,6 +61,7 @@ enum JBSourceMode {
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     [self setup];
 }
 
