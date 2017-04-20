@@ -68,7 +68,7 @@ typedef enum {
 
 /**
  Start the animation with a NSArray of UIImages.
- @param imagePaths  A NSArray of images.
+ @param images  A NSArray of images.
  @param time        The number of second of each image.
  @param isLoop      YES if you want to play the animation in loop.
  @param isLandscape YES if the view is in landscape mode.
